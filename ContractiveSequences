@@ -1,0 +1,42 @@
+#The task is to plot the contractive sequence : (x_n : n >= 0)
+#x_n+1 = λ*x_n + (1 − λ)*x_(n−1) , 0 <λ<1 , n>=1 
+                          
+contr.seq = function( x0 , x1 , lambda)
+{
+  x = numeric( length = 15)
+  x[1] = x0
+  x[2] = x1
+  for( i in 2 : 14)
+  {
+    x[i+1] = (lambda*x[i]) + ((1 - lambda)*x[i-1])
+  } 
+  plot( x = 1:15 , y = x , main = paste("x_0 = " , x0 , " , x_1 = " , x1 , " , lambda = " , lambda) , type = "o" , xlab = "n" , ylab = "X_n")
+  
+}
+#changing initial points but keeping the contractive contant same
+ contr.seq( x0 = 1 , x1 = 1.5 , lambda = 0.5)
+ contr.seq( x0 = 1 , x1 = 99 , lambda = 0.5)
+
+
+
+contr.seq = function( x0 , x1 , lambda)
+{
+  x = numeric( length = 1000)
+  x[1] = x0
+  x[2] = x1
+  for( i in 2 : 999)
+  {
+    x[i+1] = (lambda*x[i]) + ((1 - lambda)*x[i-1])
+  } 
+
+  plot( x = 1:1000 , y = x , main =  paste("x_0 = " , x0 , " , x_1 = " , x1 , " , lambda = " , lambda)  , type = "o" , col = "blue" , xlab = "n" , ylab = "X_n")
+ 
+}
+
+#chaning the values of contactive constant but keeping the initial values same
+contr.seq( x0 = 1 , x1 = 1.5 , lambda = 0.005)
+contr.seq( x0 = 1 , x1 = 99 , lambda = 0.005)
+
+
+
+
